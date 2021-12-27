@@ -1,5 +1,3 @@
-import os
-import sys
 import allure
 import pytest
 from selenium import webdriver
@@ -12,7 +10,7 @@ from webdriver_manager.microsoft import IEDriverManager
 from utilities.listeners import EventListener
 from utilities.managers.manage_ddt import get_data
 from utilities.managers.manage_pages import ManagePages
-from work_flows.desktop_flows import CalculatorFlows
+
 
 driver = None
 action = None
@@ -38,7 +36,8 @@ def init_desktop(request):
 @allure.step('Before and after test-case actions.')
 def before_after_method():
     if globals()['platform_name'].lower() == 'desktop':
-        CalculatorFlows.clear_calculator()
+        print('bg')
+        # CalculatorFlows.clear_calculator()
     yield
 
 

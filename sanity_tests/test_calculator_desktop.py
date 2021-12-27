@@ -2,6 +2,7 @@ import allure
 import pytest
 from work_flows.desktop_flows import CalculatorFlows
 
+
 @pytest.mark.usefixtures('init_desktop')
 class Test_CalculatorSystem:
 

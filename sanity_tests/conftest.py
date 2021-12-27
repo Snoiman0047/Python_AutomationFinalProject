@@ -7,38 +7,49 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.microsoft import IEDriverManager
+
+from utilities import base
 from utilities.listeners import EventListener
 from utilities.managers.manage_ddt import get_data
 from utilities.managers.manage_pages import ManagePages
+from work_flows.desktop_flows import CalculatorFlows
 
 
-driver = None
-action = None
-desired_caps = {}
-platform_name = ''
+@pytest.fixture(scope='class')
+def init_desktop(request):
+    base.platform_name = 'desktop'
+    desired_caps = {"app": "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App", "platformName": "Windows",
+                    "deviceName": "WindowsPC"}
+    base.driver = webdriver.Remote("http://127.0.0.1:4723", desired_caps)
+    base.driver.implicitly_wait(5)
+    ManagePages.init_desktop_pages()
+    yield
+    base.driver.quit()
+
+
+@pytest.fixture(autouse=True)
+def run_around_tests():
+    if base.platform_name.lower() == 'desktop':
+        CalculatorFlows.clear_calculator()
+    yield
 
 
 @pytest.fixture(scope='class')
 @allure.step('Desktop app identification.')
-def init_desktop(request):
-    globals()['platform_name'] = 'desktop'
-    globals()['desired_caps'] = {'app': get_data('APP'), 'platformName': get_data('PLATFORM_NAME'),
-                                 'deviceName': get_data('DEVICE_NAME')}
-    globals()['driver'] = webdriver.Remote('http://127.0.0.1:4723', globals()['desired_caps'])
-    request.cls.driver = globals()['driver']
-    globals()['driver'].implicitly_wait(5)
-    ManagePages.init_desktop_pages()
-    yield
-    globals()['driver'].quit()
+def init_electron(request):
+    globals()['platform_name'] = 'electron'
 
 
-@pytest.fixture(scope='method')
-@allure.step('Before and after test-case actions.')
-def before_after_method():
-    if globals()['platform_name'].lower() == 'desktop':
-        print('bg')
-        # CalculatorFlows.clear_calculator()
-    yield
+
+
+
+# @pytest.fixture(scope='method')
+# @allure.step('Before and after test-case actions.')
+# def before_after_method():
+#     if globals()['platform_name'].lower() == 'desktop':
+#         print('bg')
+#         CalculatorFlows.clear_calculator()
+    # yield
 
 
 @pytest.fixture(scope='class')
@@ -97,3 +108,6 @@ def get_initialized_driver(browser_type):
         return init_ie_driver()
     else:
         raise Exception('Unrecognized browser')
+
+
+

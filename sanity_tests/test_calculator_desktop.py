@@ -1,5 +1,6 @@
 import allure
 import pytest
+
 from work_flows.desktop_flows import CalculatorFlows
 
 

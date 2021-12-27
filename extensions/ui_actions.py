@@ -1,5 +1,5 @@
 import allure
-from sanity_tests.conftest import driver
+from utilities import base
 
 
 class UI_actions:
@@ -12,7 +12,7 @@ class UI_actions:
     @staticmethod
     @allure.step('Find element.')
     def find_element(elem):
-        driver.find_element(elem)
+        return base.driver.find_element(elem[0], elem[1])
 
     @staticmethod
     @allure.step('Get element text.')

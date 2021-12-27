@@ -14,9 +14,6 @@
     <!-- Timeout -->
     <Timeout>2</Timeout>
 
-    <!-- RecordRepositoryPath -->
-<!--    <RecordRepo>./Record_repository/</RecordRepo>-->
-
     <!-- Web -->
     <BrowserName>Chrome</BrowserName>
     <url>http://localhost:3000/login</url>
@@ -37,6 +34,7 @@
     <REMOTE_CONNECTION>http://127.0.0.1:4723</REMOTE_CONNECTION>
 
     <!-- Electron -->
+<!--    electron_app = 'C:/Electron API Demos-win32-ia32/Electron API Demos.exe'-->
     <ElectronDriverURL>C:/electrondriver-v3.1.2-win32-x64/electrondriver.exe</ElectronDriverURL>
     <ElectURL>C:/Users/snoim/AppData/Local/Programs/todolist/Todolist.exe</ElectURL>
 

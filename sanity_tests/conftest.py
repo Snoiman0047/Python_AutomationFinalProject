@@ -31,6 +31,19 @@ def init_desktop(request):
     yield
     globals()['driver'].quit()
 
+@pytest.fixture(scope='class')
+@allure.step('Mobile app identification.')
+def init_mobile(request):
+    globals()['platform_name'] = 'mobile'
+    globals()['desired_caps'] = {'udid': get_data('UDID'), 'platformName': get_data('PlatName'),
+                                 'deviceName': get_data('DEVICE_NAME')}
+    globals()['driver'] = webdriver.Remote('http://localhost:4723/wd/hub', globals()['desired_caps'])
+    request.cls.driver = globals()['driver']
+    globals()['driver'].implicitly_wait(5)
+    ManagePages.init_mobile_pages()
+    yield
+    globals()['driver'].quit()
+
 
 @pytest.fixture(scope='method')
 @allure.step('Before and after test-case actions.')

@@ -1,20 +1,20 @@
 import allure
-from sanity_tests.conftest import driver
 
 
-class UI_actions:
+class WebUiAction:
+
+    @allure.step("Click on an element")
+    def click_on(self, elem):
+        elem.click()
+
+    @allure.step("Send keys to Input")
+    def send_keys(self, elem, input):
+        elem.send_keys(input)
+
+    @allure.step("Element Text")
+    def get_text(self, elem):
+        elem.text
 
     @staticmethod
-    @allure.step('Click action.')
-    def click(elem):
-        UI_actions.find_element(elem).click()
-
-    @staticmethod
-    @allure.step('Find element.')
-    def find_element(elem):
-        driver.find_element(elem)
-
-    @staticmethod
-    @allure.step('Get element text.')
-    def get_element_text(elem):
-        return UI_actions.find_element(elem).text
+    def verify_test(ac, ex):
+        assert ac == ex

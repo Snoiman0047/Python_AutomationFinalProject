@@ -23,12 +23,11 @@
     <ImageRepo>C:/Java_AutomationFinalProject/Image_repository/</ImageRepo>
 
     <!-- Mobile -->
-    <UDID>R58M944ZE2A</UDID>
+    <UDID>12541cf8</UDID>
+    <PlatName>android</PlatName>
     <APP_PACKAGE>com.shivgadhia.android.ukMortgageCalc</APP_PACKAGE>
     <APP_ACTIVITY>.MainActivity</APP_ACTIVITY>
-    <SwipeFromPoint>900,300</SwipeFromPoint>
-    <SwipeToPoint>0,400</SwipeToPoint>
-    <MillisDuration>1000</MillisDuration>
+
 
     <!-- Desktop -->
     <APP>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</APP>

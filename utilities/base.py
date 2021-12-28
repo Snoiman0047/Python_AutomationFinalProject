@@ -1,4 +1,5 @@
 
+
 driver = None
 action = None
 platform_name = ''
@@ -16,3 +17,7 @@ eyes = None
 bank_accounts = None
 
 
+
+# API
+payload = {}
+status_code = None

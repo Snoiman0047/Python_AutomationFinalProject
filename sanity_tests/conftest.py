@@ -31,9 +31,9 @@ def init_desktop(request):
 @pytest.fixture(scope='class')
 def init_mobile(request):
     base.platform_name = 'mobile'
-    desired_caps = {"udid": "12541cf8", "appPackage": "com.financial.calculator",
-                                 "appActivity": ".FinancialCalculators", "platformName":"android"}
-    base.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+    desired_caps = {"udid": get_data('UDID'), "appPackage": get_data('APP_PACKAGE'),
+                                 "appActivity":get_data('APP_ACTIVITY'), "platformName":get_data('PLATFORM_NAME_ANDROID')}
+    base.driver = webdriver.Remote(get_data('URL_MOBLIE'), desired_caps)
     ManageDb.connect_Db()
     base.driver.implicitly_wait(5)
     ManagePages.init_mobile_pages()

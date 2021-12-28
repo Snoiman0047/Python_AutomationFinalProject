@@ -18,7 +18,7 @@ class mobile_work_flow:
         WebUiAction.click_on(base.app_page.calc)
 
     @staticmethod
-    @allure.step("loan calculator")
+    @allure.step("return text of monthly payment")
     def monthly_payment():
         return WebUiAction.get_text(base.app_page.monthly_payment)
 

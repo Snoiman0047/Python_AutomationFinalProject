@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Enviroment>
 
-    <!-- DB -->
-<!--    <DBURL>jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6455258</DBURL>-->
-<!--    <DBUserName>sql6455258</DBUserName>-->
-<!--    <DBPassword>JGVasMpwHb</DBPassword>-->
-<!--    <ClassName>com.mysql.cj.jdbc.Driver</ClassName>-->
-<!--    <LoginCredentials>SELECT user,password FROM test WHERE id=</LoginCredentials>-->
-<!--    <LoginIndexes>1,2</LoginIndexes>-->
-<!--    <UserContactDetails>SELECT user,email FROM test WHERE id=</UserContactDetails>-->
-<!--    <ContactIndexes>1,3</ContactIndexes>-->
+
+
 
     <!-- Timeout -->
     <Timeout>2</Timeout>
@@ -24,10 +17,16 @@
 
     <!-- Mobile -->
     <UDID>12541cf8</UDID>
-    <PlatName>android</PlatName>
-    <APP_PACKAGE>com.shivgadhia.android.ukMortgageCalc</APP_PACKAGE>
-    <APP_ACTIVITY>.MainActivity</APP_ACTIVITY>
+    <APP_PACKAGE>com.financial.calculator</APP_PACKAGE>
+    <PLATFORM_NAME_ANDROID>android</PLATFORM_NAME_ANDROID>
+    <APP_ACTIVITY>.FinancialCalculators</APP_ACTIVITY>
+    <URL_MOBLIE>http://localhost:4723/wd/hub</URL_MOBLIE>
 
+  <!-- DB -->
+    <DB>e7qIjyMgHh</DB>
+    <HOST>remotemysql.com</HOST>
+    <USER>e7qIjyMgHh</USER>
+    <PASS>ALKcxfmtTt</PASS>
 
     <!-- Desktop -->
     <APP>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</APP>

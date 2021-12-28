@@ -38,9 +38,21 @@
     <ElectronDriverURL>C:/electrondriver-v3.1.2-win32-x64/electrondriver.exe</ElectronDriverURL>
     <ElectURL>C:/Users/snoim/AppData/Local/Programs/todolist/Todolist.exe</ElectURL>
 
-    <!-- Grafana API -->
-    <Grafana_API_URL>http://localhost:3000/api/</Grafana_API_URL>
-    <Authorization_basic_key>Basic YWRtaW46YWRtaW4=</Authorization_basic_key>
-    <StatusCode>200</StatusCode>
+    <!--API -->
+    <API_URL>http://localhost:3000</API_URL>
+    <Header>{"Content-type": "application/json"}</Header>
+    <String_Resource>/posts</String_Resource>
+    <Test_Id>/101</Test_Id>
+    <!--POST-->
+    <New_Value_User_Id>11</New_Value_User_Id>
+    <New_Value_Id>101</New_Value_Id>
+    <New_Value_Title>Team10</New_Value_Title>
+    <New_Value_Body>POST Test</New_Value_Body>
+    <!--PATCH-->
+    <Edit_Value_Title>Team10Edit</Edit_Value_Title>
+    <Edit_Value_Body>PATCH Test</Edit_Value_Body>
+
+
+<!--    <Post_Dictionary>{'userId': '11' # 'id': '101' # 'title': 'Team10' # 'body': 'POST Test'}</Post_Dictionary>-->
 
 </Enviroment>

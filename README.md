@@ -15,30 +15,30 @@
 ## About the project:
 This project is an automation infrastructure written in python language. It supports multiple platforms.
 ## This project performs automated testing of various applications:
-• Web based application
-• Server API
-• Mobile application
-• Electron application
-• Desktop application
+• Web based application<br/>
+• Server API<br/>
+• Mobile application<br/>
+• Electron application<br/>
+• Desktop application<br/>
 ## Applications tested:
-• Real world app - A payment application to demonstrate real-world usage of Cypress testing methods, patterns, and workflows
-• Json-server - Requests API
-• Financial Calculators - Mobile application tested with Appium
-• Windows Calculator - Desktop application tested with WinAppDriver
-• Api-demos -  Desktop application tested with ElectronDriver
+• Real world app - A payment application to demonstrate real-world usage of Cypress testing methods, patterns, and workflows<br/>
+• Json-server - Requests API<br/>
+• Financial Calculators - Mobile application tested with Appium<br/>
+• Windows Calculator - Desktop application tested with WinAppDriver<br/>
+• Api-demos -  Desktop application tested with ElectronDriver<br/>
 ## Tools & Frameworks:
-•   Selenium 
-•   Appium
-•   Requests
-•   MySql Database
-•   Pytest
-•   Applitools
-• Jenkins for Automating Test executions & Test Pipelines
-• Allure Reports - Reporting System
-##Usages
-•   Used DDT
-•   Used Page Objects 
-•   Used Assert
+• Selenium <br/>
+• Appium<br/>
+• Requests<br/>
+• MySql Database<br/>
+• Pytest<br/>
+• Applitools<br/>
+• Jenkins for Automating Test executions & Test Pipelines<br/>
+• Allure Reports - Reporting System<br/>
+## Usages
+•   Used DDT<br/>
+•   Used Page Objects <br/>
+•   Used Assert<br/>
 # Architecture
 ![architecture](https://user-images.githubusercontent.com/48318320/147590746-336ff385-c3ca-4ce0-93aa-081f0ad1abbf.png)
 ### Json server

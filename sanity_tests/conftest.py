@@ -32,11 +32,10 @@ def init_web(request):
     base.platform_name = 'web'
     # browser_type = os.getenv('BrowserType')
     browser_type = 'chrome'
-    globals()['driver'] = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
-    request.cls.driver = globals()['driver']
-    globals()['driver'].maximize_window()
+    base.driver = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
+    base.driver.maximize_window()
     yield
-    globals()['driver'].quit()
+    base.driver.quit()
 
 
 @pytest.fixture(scope='class')

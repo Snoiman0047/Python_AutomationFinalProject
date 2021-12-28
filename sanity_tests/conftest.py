@@ -16,13 +16,34 @@ from work_flows.desktop_flows import CalculatorFlows
 
 
 @pytest.fixture(scope='class')
-def init_desktop(request):
+def init_desktop():
     base.platform_name = 'desktop'
-    desired_caps = {"app": "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App", "platformName": "Windows",
-                    "deviceName": "WindowsPC"}
-    base.driver = webdriver.Remote("http://127.0.0.1:4723", desired_caps)
+    desired_caps = {"app": get_data('APP'), "platformName": get_data('PLATFORM_NAME'),
+                    "deviceName": get_data('DEVICE_NAME')}
+    base.driver = webdriver.Remote(get_data('REMOTE_CONNECTION'), desired_caps)
     base.driver.implicitly_wait(5)
     ManagePages.init_desktop_pages()
+    yield
+    base.driver.quit()
+
+
+@pytest.fixture(scope='class')
+def init_web(request):
+    base.platform_name = 'web'
+    # browser_type = os.getenv('BrowserType')
+    browser_type = 'chrome'
+    globals()['driver'] = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
+    request.cls.driver = globals()['driver']
+    globals()['driver'].maximize_window()
+    yield
+    globals()['driver'].quit()
+
+
+@pytest.fixture(scope='class')
+def init_electron():
+    base.platform_name = 'electron'
+    init_electron_driver()
+    ManagePages.init_electron_pages()
     yield
     base.driver.quit()
 
@@ -34,34 +55,11 @@ def run_around_tests():
     yield
 
 
-@pytest.fixture(scope='class')
-@allure.step('Desktop app identification.')
-def init_electron(request):
-    globals()['platform_name'] = 'electron'
-
-
-
-
-
-# @pytest.fixture(scope='method')
-# @allure.step('Before and after test-case actions.')
-# def before_after_method():
-#     if globals()['platform_name'].lower() == 'desktop':
-#         print('bg')
-#         CalculatorFlows.clear_calculator()
-    # yield
-
-
-@pytest.fixture(scope='class')
-@allure.step('Web browser identification.')
-def init_web(request):
-    # browser_type = os.getenv('BrowserType')
-    browser_type = get_data('BrowserType')
-    globals()['driver'] = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
-    request.cls.driver = globals()['driver']
-    globals()['driver'].maximize_window()
-    yield
-    globals()['driver'].quit()
+@allure.step('Electron driver initialization.')
+def init_electron_driver():
+    options = webdriver.ChromeOptions()
+    options.binary_location = get_data('ELECTRON_APP')
+    base.driver = webdriver.Chrome(chrome_options=options, executable_path=get_data('E_DRIVER'))
 
 
 @allure.step('Chrome driver initialization.')

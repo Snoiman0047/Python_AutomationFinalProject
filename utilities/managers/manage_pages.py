@@ -1,6 +1,7 @@
 import allure
 from page_objects.desktop.calculator_page import CalculatorPage
 from page_objects.electron.demos_page import DemosPage
+from page_objects.mobile.appium_page import appium_page
 from page_objects.web.bank_accounts_page import BankAccounts
 from page_objects.web.my_account_page import MyAccount
 from page_objects.web.nav_bar_page import NavBar
@@ -31,3 +32,8 @@ class ManagePages:
         base.navbar = NavBar(base.driver)
         base.my_account = MyAccount(base.driver)
         base.bank_accounts = BankAccounts(base.driver)
+
+    @staticmethod
+    @allure.step("Initialization pages mobile.")
+    def init_mobile_pages():
+        base.app_page = appium_page()

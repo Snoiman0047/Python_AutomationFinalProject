@@ -17,5 +17,5 @@ class ManageDb:
 
     @staticmethod
     @allure.step("close Db")
-    def teardown_class(cls):
+    def teardown_class():
         base.mydb.close()

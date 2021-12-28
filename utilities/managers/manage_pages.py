@@ -1,18 +1,33 @@
 import allure
 from page_objects.desktop.calculator_page import CalculatorPage
-from page_objects.appium.appium_page import appium_page
+from page_objects.electron.demos_page import DemosPage
+from page_objects.web.bank_accounts_page import BankAccounts
+from page_objects.web.my_account_page import MyAccount
+from page_objects.web.nav_bar_page import NavBar
+from page_objects.web.profile_page import Profile
+from page_objects.web.sign_in_page import SignIn
+from page_objects.web.sign_up_page import SignUp
 from utilities import base
 
 
-
-
 class ManagePages:
+
     @staticmethod
-    @allure.step("Initialization pages.")
+    @allure.step('Initialization desktop pages.')
     def init_desktop_pages():
         base.calc_page = CalculatorPage()
 
     @staticmethod
-    @allure.step("Initialization pages mobile.")
-    def init_mobile_pages():
-        base.app_page = appium_page()
+    @allure.step('Initialization desktop pages.')
+    def init_electron_pages():
+        base.demos_page = DemosPage()
+
+    @staticmethod
+    @allure.step('Initialization web pages.')
+    def init_web_pages():
+        base.sign_up = SignUp(base.driver)
+        base.sign_in = SignIn(base.driver)
+        base.profile = Profile(base.driver)
+        base.navbar = NavBar(base.driver)
+        base.my_account = MyAccount(base.driver)
+        base.bank_accounts = BankAccounts(base.driver)

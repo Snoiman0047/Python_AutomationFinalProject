@@ -6,18 +6,27 @@ class SignUp:
     def __init__(self, driver):
         self.driver = driver
 
-    Sign_Up_Link = (By.XPATH, '//div[2]/a')
+    def get_sign_up_link(self):
+        return self.driver.find_element(By.XPATH, '//div[2]/a')
 
-    First_Name_Input = (By.ID, 'firstName')
+    def get_first_name_input(self):
+        return self.driver.find_element(By.ID, 'firstName')
 
-    Last_Name_Input = (By.ID, 'lastName')
+    def get_last_name_input(self):
+        return self.driver.find_element(By.ID, 'lastName')
 
-    User_Name_Input = (By.ID, 'username')
+    def get_user_name_input(self):
+        return self.driver.find_element(By.ID, 'username')
 
-    Password_Input = (By.ID, 'password')
+    def get_password_input(self):
+        return self.driver.find_element(By.ID, 'password')
 
-    ConfirmPassword_Input = (By.ID, 'confirmPassword')
+    def get_confirm_password_input(self):
+        return self.driver.find_element(By.ID, 'confirmPassword')
 
-    SignUp_Btn = (By.XPATH, '//form/button/span[1]')
+    def get_sign_up_btn(self):
+        return self.driver.find_element(By.XPATH, '//form/button/span[1]')
+
+
 
 

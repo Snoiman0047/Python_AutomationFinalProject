@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Enviroment>
 
-
-
-
     <!-- Timeout -->
     <Timeout>2</Timeout>
 
-    <!-- RecordRepositoryPath -->
-<!--    <RecordRepo>./Record_repository/</RecordRepo>-->
-
-    <!-- Web -->
+     <!-- Web -->
     <BrowserName>Chrome</BrowserName>
-    <url>http://localhost:3000/login</url>
-    <ImageRepo>C:/Java_AutomationFinalProject/Image_repository/</ImageRepo>
+    <url>http://localhost:3000/</url>
+    <NewFirstName>Rami</NewFirstName>
+    <NewLastName>Ghawi</NewLastName>
+    <NewUserName>ramig</NewUserName>
+    <NewPassword>1234567</NewPassword>
+    <MessageTest1>Not equals sign in titles</MessageTest1>
+    <UserName>Tavares_Barrows</UserName>
+    <PassWord>s3cret</PassWord>
+    <CheckWindowBase>HomePage</CheckWindowBase>
+    <CheckWindowAfter>After Click on Home</CheckWindowAfter>
+    <EyesAPIKey>1ERXihUFAuGZUWyCVGaVf1rUfXp1093i3iH0IbRdhlwos110</EyesAPIKey>
+    <EyesApplitoolsTitle>TestWebHomePage4</EyesApplitoolsTitle>
+    <EyesApplitoolsSubTitle>HomePage</EyesApplitoolsSubTitle>
+    <MessageTest2>Not equals balance</MessageTest2>
+    <NewPhoneNumber>050-550-0789</NewPhoneNumber>
+    <MessageTest3>Not equals phone numbers</MessageTest3>
+    <NewAccountName>TeamTenAccount</NewAccountName>
+    <NewRoutingNumber>123456789</NewRoutingNumber>
+    <NewAccountNumber>123456789</NewAccountNumber>
+    <MessageTest4>Not equals account names</MessageTest4>
+    <MessageTest5>Element not exist in screen</MessageTest5>
+
+    <ExpectedSignInTitle>Sign in</ExpectedSignInTitle>
+    <ExpectedBalance>$1,018.05</ExpectedBalance>
 
     <!-- Mobile -->
-    <UDID>12541cf8</UDID>
-    <APP_PACKAGE>com.financial.calculator</APP_PACKAGE>
-    <PLATFORM_NAME_ANDROID>android</PLATFORM_NAME_ANDROID>
-    <APP_ACTIVITY>.FinancialCalculators</APP_ACTIVITY>
-    <URL_MOBLIE>http://localhost:4723/wd/hub</URL_MOBLIE>
-
-  <!-- DB -->
-    <DB>e7qIjyMgHh</DB>
-    <HOST>remotemysql.com</HOST>
-    <USER>e7qIjyMgHh</USER>
-    <PASS>ALKcxfmtTt</PASS>
+    <UDID>R58M944ZE2A</UDID>
+    <APP_PACKAGE>com.shivgadhia.android.ukMortgageCalc</APP_PACKAGE>
+    <APP_ACTIVITY>.MainActivity</APP_ACTIVITY>
+    <SwipeFromPoint>900,300</SwipeFromPoint>
+    <SwipeToPoint>0,400</SwipeToPoint>
+    <MillisDuration>1000</MillisDuration>
 
     <!-- Desktop -->
     <APP>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</APP>
     <PLATFORM_NAME>Windows</PLATFORM_NAME>
     <DEVICE_NAME>WindowsPC</DEVICE_NAME>
     <REMOTE_CONNECTION>http://127.0.0.1:4723</REMOTE_CONNECTION>
+    <ACTIONS>4+2, 6, addition # 10*3+5=/7, 5, combination # 22/11, 2, division # 9*5, 45, multiplication # 8-6, 2, subtraction</ACTIONS>
+
 
     <!-- Electron -->
-    <ElectronDriverURL>C:/electrondriver-v3.1.2-win32-x64/electrondriver.exe</ElectronDriverURL>
-    <ElectURL>C:/Users/snoim/AppData/Local/Programs/todolist/Todolist.exe</ElectURL>
+    <E_DRIVER>C:/electrondriver-v3.1.2-win32-x64/electrondriver.exe</E_DRIVER>
+    <ELECTRON_APP>C:/Electron API Demos-win32-ia32/Electron API Demos.exe</ELECTRON_APP>
+    <COPY_RESULT_TEXT>Copied! Paste here to see.</COPY_RESULT_TEXT>
 
     <!-- Grafana API -->
     <Grafana_API_URL>http://localhost:3000/api/</Grafana_API_URL>

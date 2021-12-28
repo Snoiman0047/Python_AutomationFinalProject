@@ -29,8 +29,7 @@ def init_desktop():
 
 
 @pytest.fixture(scope='class')
-@allure.step('Web browser identification.')
-def init_web(request):
+def init_web():
     base.driver = webdriver.Chrome(ChromeDriverManager().install())
     base.driver.maximize_window()
     base.driver.get("http://localhost:3000/")
@@ -42,7 +41,6 @@ def init_web(request):
     # base.driver = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
 
     yield
-    base.driver.quit()
     base.eyes.abort()
     base.driver.quit()
 

@@ -1,7 +1,6 @@
 import allure
 from page_objects.desktop.calculator_page import CalculatorPage
 from page_objects.electron.demos_page import DemosPage
-from utilities import base
 from page_objects.web.bank_accounts_page import BankAccounts
 from page_objects.web.my_account_page import MyAccount
 from page_objects.web.nav_bar_page import NavBar
@@ -22,12 +21,10 @@ class ManagePages:
     @allure.step('Initialization desktop pages.')
     def init_electron_pages():
         base.demos_page = DemosPage()
-        base.calc_page = CalculatorPage(base.driver)
 
     @staticmethod
-    @allure.step("Initialization web pages.")
+    @allure.step('Initialization web pages.')
     def init_web_pages():
-        base.calc_page = CalculatorPage(base.driver)
         base.sign_up = SignUp(base.driver)
         base.sign_in = SignIn(base.driver)
         base.profile = Profile(base.driver)

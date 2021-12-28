@@ -1,8 +1,8 @@
 import allure
 import pytest
 from main.extensions.verifications import Verifications
-from main.work_flows import mobile_work_flow
 from main.extensions.db_actions import DBAction as db
+from main.work_flows.mobile_flows import mobile_work_flow
 
 
 @pytest.mark.usefixtures('init_mobile')

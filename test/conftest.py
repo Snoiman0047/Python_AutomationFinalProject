@@ -3,7 +3,7 @@ import os
 
 import allure
 import pytest
-# from applitools.selenium import Eyes
+from applitools.selenium import Eyes
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
@@ -132,6 +132,6 @@ def get_initialized_driver(browser_type):
 
 @allure.step("Init and open Eyes")
 def init_eyes():
-    # base.eyes = Eyes()
+    base.eyes = Eyes()
     base.eyes.api_key = get_data("EyesAPIKey")
     base.eyes.open(base.driver, get_data("EyesApplitoolsTitle"), get_data("EyesApplitoolsSubTitle"))

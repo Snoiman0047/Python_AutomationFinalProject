@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Enviroment>
 
+    <!-- Timeout -->
+    <Timeout>2</Timeout>
+
+     <!-- Web -->
+    <BrowserName>Chrome</BrowserName>
+    <url>http://localhost:3000/</url>
+    <NewFirstName>Rami</NewFirstName>
+    <NewLastName>Ghawi</NewLastName>
+    <NewUserName>ramig</NewUserName>
+    <NewPassword>1234567</NewPassword>
+    <MessageTest1>Not equals sign in titles</MessageTest1>
+    <UserName>Tavares_Barrows</UserName>
+    <PassWord>s3cret</PassWord>
+    <CheckWindowBase>HomePage</CheckWindowBase>
+    <CheckWindowAfter>After Click on Home</CheckWindowAfter>
+    <EyesAPIKey>1ERXihUFAuGZUWyCVGaVf1rUfXp1093i3iH0IbRdhlwos110</EyesAPIKey>
+    <EyesApplitoolsTitle>TestWebHomePage4</EyesApplitoolsTitle>
+    <EyesApplitoolsSubTitle>HomePage</EyesApplitoolsSubTitle>
+    <MessageTest2>Not equals balance</MessageTest2>
+    <NewPhoneNumber>050-550-0789</NewPhoneNumber>
+    <MessageTest3>Not equals phone numbers</MessageTest3>
+    <NewAccountName>TeamTenAccount</NewAccountName>
+    <NewRoutingNumber>123456789</NewRoutingNumber>
+    <NewAccountNumber>123456789</NewAccountNumber>
+    <MessageTest4>Not equals account names</MessageTest4>
+    <MessageTest5>Element not exist in screen</MessageTest5>
+
+    <ExpectedSignInTitle>Sign in</ExpectedSignInTitle>
+    <ExpectedBalance>$1,018.05</ExpectedBalance>
+
+    <!-- Mobile -->
+    <UDID>R58M944ZE2A</UDID>
+    <APP_PACKAGE>com.shivgadhia.android.ukMortgageCalc</APP_PACKAGE>
+    <APP_ACTIVITY>.MainActivity</APP_ACTIVITY>
+    <SwipeFromPoint>900,300</SwipeFromPoint>
+    <SwipeToPoint>0,400</SwipeToPoint>
+    <MillisDuration>1000</MillisDuration>
+
     <!-- Desktop -->
     <APP>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</APP>
     <PLATFORM_NAME>Windows</PLATFORM_NAME>
@@ -14,5 +52,9 @@
     <ELECTRON_APP>C:/Electron API Demos-win32-ia32/Electron API Demos.exe</ELECTRON_APP>
     <COPY_RESULT_TEXT>Copied! Paste here to see.</COPY_RESULT_TEXT>
 
+    <!-- Grafana API -->
+    <Grafana_API_URL>http://localhost:3000/api/</Grafana_API_URL>
+    <Authorization_basic_key>Basic YWRtaW46YWRtaW4=</Authorization_basic_key>
+    <StatusCode>200</StatusCode>
 
 </Enviroment>

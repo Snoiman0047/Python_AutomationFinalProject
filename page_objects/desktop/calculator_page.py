@@ -3,6 +3,11 @@ from selenium.webdriver.common.by import By
 
 
 class CalculatorPage:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def get_btn_four(self):
+        return self.driver.find_element(By.NAME, 'Four')
 
     __FIELD_CALC_RESULT = (By.XPATH, "//*[@AutomationId='CalculatorResults']")
     __BTN_EQUALS = (By.NAME, 'Equals')
@@ -90,6 +95,7 @@ class CalculatorPage:
     @allure.step('Get nine button (9).')
     def get_nine_btn(self):
         return self.__BTN_NINE
+
 
 
 

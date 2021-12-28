@@ -1,13 +1,14 @@
 import allure
 import pytest
+from applitools.selenium import Eyes
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.microsoft import IEDriverManager
-
 from utilities import base
 from utilities.listeners import EventListener
 from utilities.managers.manage_ddt import get_data
@@ -28,22 +29,21 @@ def init_desktop():
 
 
 @pytest.fixture(scope='class')
+@allure.step('Web browser identification.')
 def init_web(request):
-    base.platform_name = 'web'
-    # browser_type = os.getenv('BrowserType')
-    browser_type = 'chrome'
-    base.driver = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
+    base.driver = webdriver.Chrome(ChromeDriverManager().install())
     base.driver.maximize_window()
+    base.driver.get("http://localhost:3000/")
+    base.action = ActionChains(base.driver)
+    init_eyes()
+    ManagePages.init_web_pages()
+    # browser_type = os.getenv('BrowserType')
+    # browser_type = get_data('BrowserType')
+    # base.driver = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
+
     yield
     base.driver.quit()
-
-
-@pytest.fixture(scope='class')
-def init_electron():
-    base.platform_name = 'electron'
-    init_electron_driver()
-    ManagePages.init_electron_pages()
-    yield
+    base.eyes.abort()
     base.driver.quit()
 
 
@@ -106,5 +106,8 @@ def get_initialized_driver(browser_type):
     else:
         raise Exception('Unrecognized browser')
 
-
-
+@allure.step("Init and open Eyes")
+def init_eyes():
+    base.eyes = Eyes()
+    base.eyes.api_key = get_data("EyesAPIKey")
+    base.eyes.open(base.driver, get_data("EyesApplitoolsTitle"), get_data("EyesApplitoolsSubTitle"))

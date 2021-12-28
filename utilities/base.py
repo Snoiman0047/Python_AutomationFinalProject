@@ -1,10 +1,11 @@
 
-
 driver = None
 action = None
 platform_name = ''
 
 calc_page = None
+app_page = None
+mydb = None
 demos_page = None
 sign_up = None
 sign_in = None

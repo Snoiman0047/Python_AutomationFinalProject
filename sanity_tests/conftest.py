@@ -11,6 +11,7 @@ from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.microsoft import IEDriverManager
 from utilities import base
 from utilities.listeners import EventListener
+from utilities.managers.manage_db import ManageDb
 from utilities.managers.manage_ddt import get_data
 from utilities.managers.manage_pages import ManagePages
 from work_flows.desktop_flows import CalculatorFlows
@@ -29,10 +30,23 @@ def init_desktop():
 
 
 @pytest.fixture(scope='class')
+def init_mobile():
+    base.platform_name = 'mobile'
+    desired_caps = {"udid": get_data('UDID'), "appPackage": get_data('APP_PACKAGE'),
+                                 "appActivity":get_data('APP_ACTIVITY'), "platformName":get_data('PLATFORM_NAME_ANDROID')}
+    base.driver = webdriver.Remote(get_data('URL_MOBLIE'), desired_caps)
+    ManageDb.connect_Db()
+    base.driver.implicitly_wait(5)
+    ManagePages.init_mobile_pages()
+    yield
+    base.driver.quit()
+
+
+@pytest.fixture(scope='class')
 def init_web():
     base.driver = webdriver.Chrome(ChromeDriverManager().install())
     base.driver.maximize_window()
-    base.driver.get("http://localhost:3000/")
+    base.driver.get(get_data('url'))
     base.action = ActionChains(base.driver)
     init_eyes()
     ManagePages.init_web_pages()

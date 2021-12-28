@@ -1,56 +1,54 @@
+import time
+
 import allure
 import pytest
+from applitools.selenium import Eyes
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.microsoft import IEDriverManager
+from utilities import base
 from utilities.listeners import EventListener
 from utilities.managers.manage_ddt import get_data
 from utilities.managers.manage_pages import ManagePages
 
 
-driver = None
-action = None
-desired_caps = {}
-platform_name = ''
-
-
 @pytest.fixture(scope='class')
-@allure.step('Desktop app identification.')
+# @allure.step('Desktop app identification.')
 def init_desktop(request):
-    globals()['platform_name'] = 'desktop'
-    globals()['desired_caps'] = {'app': get_data('APP'), 'platformName': get_data('PLATFORM_NAME'),
-                                 'deviceName': get_data('DEVICE_NAME')}
-    globals()['driver'] = webdriver.Remote('http://127.0.0.1:4723', globals()['desired_caps'])
-    request.cls.driver = globals()['driver']
-    globals()['driver'].implicitly_wait(5)
+    print("Nisionnnnnnnnn")
+    desired_caps = {}
+    desired_caps["app"] = "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
+    desired_caps["platformName"] = "Windows"
+    desired_caps["deviceName"] = "WindowsPC"
+    base.driver = webdriver.Remote("http://127.0.0.1:4723", desired_caps)
+    base.driver.implicitly_wait(5)
     ManagePages.init_desktop_pages()
-    yield
-    globals()['driver'].quit()
 
-
-@pytest.fixture(scope='method')
-@allure.step('Before and after test-case actions.')
-def before_after_method():
-    if globals()['platform_name'].lower() == 'desktop':
-        print('bg')
-        # CalculatorFlows.clear_calculator()
     yield
+    base.driver.quit()
 
 
 @pytest.fixture(scope='class')
-@allure.step('Web browser identification.')
+# @allure.step('Web browser identification.')
 def init_web(request):
+    base.driver = webdriver.Chrome(ChromeDriverManager().install())
+    base.driver.maximize_window()
+    base.driver.get("http://localhost:3000/")
+    base.action = ActionChains(base.driver)
+    init_eyes()
+    ManagePages.init_web_pages()
     # browser_type = os.getenv('BrowserType')
-    browser_type = get_data('BrowserType')
-    globals()['driver'] = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
-    request.cls.driver = globals()['driver']
-    globals()['driver'].maximize_window()
+    # browser_type = get_data('BrowserType')
+    # base.driver = EventFiringWebDriver(get_initialized_driver(browser_type), EventListener())
+
     yield
-    globals()['driver'].quit()
+    base.driver.quit()
+    base.eyes.abort()
 
 
 @allure.step('Chrome driver initialization.')
@@ -97,3 +95,10 @@ def get_initialized_driver(browser_type):
         return init_ie_driver()
     else:
         raise Exception('Unrecognized browser')
+
+
+@allure.step("Init and open Eyes")
+def init_eyes():
+    base.eyes = Eyes()
+    base.eyes.api_key = get_data("EyesAPIKey")
+    base.eyes.open(base.driver, get_data("EyesApplitoolsTitle"), get_data("EyesApplitoolsSubTitle"))

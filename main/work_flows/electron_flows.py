@@ -1,9 +1,9 @@
 import allure
 
-from extensions.ui_actions import UIActions
-from extensions.verifications import Verifications
-from utilities import base
-from utilities.managers.manage_ddt import get_data
+from main.extensions.ui_actions import UIActions
+from main.extensions.verifications import Verifications
+from main.utilities import base
+from main.utilities.manage_ddt import get_data
 
 
 class DemosFlow:

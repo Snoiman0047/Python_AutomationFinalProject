@@ -1,7 +1,7 @@
 import allure
 
-from extensions.ui_actions import UIActions
-from utilities import base
+from main.extensions.ui_actions import UIActions
+from main.utilities import base
 
 
 class mobile_work_flow:

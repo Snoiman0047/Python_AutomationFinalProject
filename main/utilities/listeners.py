@@ -1,10 +1,13 @@
 import allure
 from selenium.webdriver.support.events import AbstractEventListener
 
+from main.utilities import base
+
 
 class EventListener(AbstractEventListener):
     button_text = None
     errors = 0
+    success = 0
 
     def before_navigate_to(self, url, driver):
         print("Before Navigating to", url)
@@ -73,6 +76,13 @@ class EventListener(AbstractEventListener):
     def on_exception(self, exception, driver):
         print("On Exception: ", exception)
         image = f'./screen_shots/screen_on_exception_{EventListener.errors}.png'
-        driver.get_screenshot_as_file(image)
+        base.driver.get_screenshot_as_file(image)
         allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
         EventListener.errors += 1
+
+    # def on_success(self, ):
+    #     print("On Exception: ", )
+    #     image = f'./screen_shots/screen_on_success_{EventListener.errors}.png'
+    #     driver.get_screenshot_as_file(image)
+    #     allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
+    #     EventListener.success += 1

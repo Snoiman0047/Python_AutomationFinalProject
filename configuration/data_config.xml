@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Enviroment>
 
-    <!-- Timeout -->
-    <Timeout>2</Timeout>
-
-     <!-- Web -->
+    <!-- Web -->
     <BrowserName>Chrome</BrowserName>
-    <url>http://localhost:3000/</url>
+    <url>http://localhost:4000/</url>
     <NewFirstName>Rami</NewFirstName>
     <NewLastName>Ghawi</NewLastName>
     <NewUserName>ramig</NewUserName>
@@ -56,5 +53,17 @@
     <ELECTRON_APP>C:/Electron API Demos-win32-ia32/Electron API Demos.exe</ELECTRON_APP>
     <COPY_RESULT_TEXT>Copied! Paste here to see.</COPY_RESULT_TEXT>
 
+    <!--API -->
+    <API_URL>http://localhost:3000</API_URL>
+    <String_Resource>/posts</String_Resource>
+    <Test_Id>/101</Test_Id>
+    <!--POST-->
+    <New_Value_User_Id>11</New_Value_User_Id>
+    <New_Value_Id>101</New_Value_Id>
+    <New_Value_Title>Team10</New_Value_Title>
+    <New_Value_Body>POST Test</New_Value_Body>
+    <!--PATCH-->
+    <Edit_Value_Title>Team10Edit</Edit_Value_Title>
+    <Edit_Value_Body>PATCH Test</Edit_Value_Body>
 
 </Enviroment>

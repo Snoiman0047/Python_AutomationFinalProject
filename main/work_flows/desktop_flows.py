@@ -1,7 +1,7 @@
 import allure
-from extensions.ui_actions import UIActions
-from extensions.verifications import Verifications
-from utilities import base
+from main.extensions.ui_actions import UIActions
+from main.extensions.verifications import Verifications
+from main.utilities import base
 
 
 class CalculatorFlows:

@@ -1,5 +1,6 @@
 import allure
-from extensions.api_actions import ApiActions
+
+from main.extensions.api_actions import ApiActions
 
 
 class ApiFlows:

@@ -1,8 +1,8 @@
 import allure
 import pytest
 
-from utilities.auxiliary_methods import get_actions
-from work_flows.desktop_flows import CalculatorFlows
+from main.utilities.auxiliary_methods import get_actions
+from main.work_flows.desktop_flows import CalculatorFlows
 
 
 @pytest.mark.usefixtures('init_desktop')

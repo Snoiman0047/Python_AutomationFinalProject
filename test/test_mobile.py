@@ -1,10 +1,8 @@
-import unittest
-
 import allure
 import pytest
-from extensions.verifications import Verifications
-from work_flows.mobile_flows import mobile_work_flow
-from extensions.db_actions import DBAction as db
+from main.extensions.verifications import Verifications
+from main.work_flows import mobile_work_flow
+from main.extensions.db_actions import DBAction as db
 
 
 @pytest.mark.usefixtures('init_mobile')

@@ -1,12 +1,12 @@
 import allure
 import mysql.connector
-from utilities import base
-from utilities.managers.manage_ddt import get_data
+from main.utilities import base
+from main.utilities.manage_ddt import get_data
 
 
 class ManageDb:
     @staticmethod
-    @allure.step("connect Db")
+    @allure.step('Connect to Db.')
     def connect_Db():
         base.mydb = mysql.connector.connect(
             host=get_data('HOST'),
@@ -16,6 +16,6 @@ class ManageDb:
         )
 
     @staticmethod
-    @allure.step("close Db")
+    @allure.step('Close Db connection.')
     def teardown_class():
         base.mydb.close()

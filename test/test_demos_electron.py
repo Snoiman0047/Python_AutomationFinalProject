@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from work_flows.electron_flows import DemosFlow
+from main.work_flows.electron_flows import DemosFlow
 
 
 @pytest.mark.usefixtures('init_electron')

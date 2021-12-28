@@ -1,4 +1,4 @@
-from utilities.managers.manage_ddt import get_data
+from main.utilities.manage_ddt import get_data
 
 
 def get_actions():

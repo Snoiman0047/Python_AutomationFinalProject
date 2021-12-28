@@ -1,14 +1,13 @@
 import allure
 import pytest
 
-from extensions.verifications import Verifications
-from utilities import base
-from utilities.managers.manage_ddt import get_data
-from work_flows.web_flows import WebWorkFlow
+from main.extensions.verifications import Verifications
+from main.utilities.manage_ddt import get_data
+from main.work_flows.web_flows import WebWorkFlow
 
 
 @pytest.mark.usefixtures("init_web")
-class Tests_Web:
+class Test_Web:
 
     @allure.title("Sign Up")
     @allure.description("Sign up with new user and verify sign up succeeded")

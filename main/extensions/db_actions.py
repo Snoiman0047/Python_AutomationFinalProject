@@ -1,5 +1,6 @@
 import allure
-from utilities import base
+from main.utilities import base
+
 
 class DBAction:
     @staticmethod

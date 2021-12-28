@@ -1,14 +1,14 @@
 import allure
-from page_objects.desktop.calculator_page import CalculatorPage
-from page_objects.electron.demos_page import DemosPage
-from page_objects.mobile.appium_page import appium_page
-from page_objects.web.bank_accounts_page import BankAccounts
-from page_objects.web.my_account_page import MyAccount
-from page_objects.web.nav_bar_page import NavBar
-from page_objects.web.profile_page import Profile
-from page_objects.web.sign_in_page import SignIn
-from page_objects.web.sign_up_page import SignUp
-from utilities import base
+from main.page_objects.desktop.calculator_page import CalculatorPage
+from main.page_objects.electron.demos_page import DemosPage
+from main.page_objects.mobile.appium_page import appium_page
+from main.page_objects.web.bank_accounts_page import BankAccounts
+from main.page_objects.web.my_account_page import MyAccount
+from main.page_objects.web.nav_bar_page import NavBar
+from main.page_objects.web.profile_page import Profile
+from main.page_objects.web.sign_in_page import SignIn
+from main.page_objects.web.sign_up_page import SignUp
+from main.utilities import base
 
 
 class ManagePages:

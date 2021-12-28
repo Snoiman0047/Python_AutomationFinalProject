@@ -3,8 +3,8 @@ import time
 import allure
 from selenium.webdriver.common.keys import Keys
 
-from extensions.ui_actions import UIActions
-from utilities import base
+from main.extensions.ui_actions import UIActions
+from main.utilities import base
 
 
 class WebWorkFlow:

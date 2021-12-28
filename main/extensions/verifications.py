@@ -12,3 +12,4 @@ class Verifications:
     @allure.step("Verify the condition is true")
     def verify_true(condition, massage):
         assert (condition, massage)
+

@@ -7,15 +7,12 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.opera import OperaDriverManager
 from webdriver_manager.microsoft import IEDriverManager
+
+from utilities import base
 from utilities.listeners import EventListener
+from utilities.managers.manage_db import ManageDb
 from utilities.managers.manage_ddt import get_data
 from utilities.managers.manage_pages import ManagePages
-
-
-driver = None
-action = None
-desired_caps = {}
-platform_name = ''
 
 
 @pytest.fixture(scope='class')
@@ -32,26 +29,20 @@ def init_desktop(request):
     globals()['driver'].quit()
 
 @pytest.fixture(scope='class')
-@allure.step('Mobile app identification.')
 def init_mobile(request):
-    globals()['platform_name'] = 'mobile'
-    globals()['desired_caps'] = {'udid': get_data('UDID'), 'platformName': get_data('PlatName'),
-                                 'deviceName': get_data('DEVICE_NAME')}
-    globals()['driver'] = webdriver.Remote('http://localhost:4723/wd/hub', globals()['desired_caps'])
-    request.cls.driver = globals()['driver']
-    globals()['driver'].implicitly_wait(5)
+    base.platform_name = 'mobile'
+    desired_caps = {"udid": "12541cf8", "appPackage": "com.financial.calculator",
+                                 "appActivity": ".FinancialCalculators", "platformName":"android"}
+    base.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+    ManageDb.connect_Db()
+    base.driver.implicitly_wait(5)
     ManagePages.init_mobile_pages()
     yield
-    globals()['driver'].quit()
+    base.driver.quit()
 
 
-@pytest.fixture(scope='method')
-@allure.step('Before and after test-case actions.')
-def before_after_method():
-    if globals()['platform_name'].lower() == 'desktop':
-        print('bg')
-        # CalculatorFlows.clear_calculator()
-    yield
+
+
 
 
 @pytest.fixture(scope='class')

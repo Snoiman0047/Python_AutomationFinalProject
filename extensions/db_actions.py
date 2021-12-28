@@ -1,14 +1,12 @@
-import mysql.connector
-global mydb
-mydb = mysql.connector.connect(
-            host="remotemysql.com",
-            database="e7qIjyMgHh",
-            user="e7qIjyMgHh",
-            password="ALKcxfmtTt"
-        )
+import allure
+from utilities import base
 
-query = "SELECT value FROM Test_values"
-my_cursor = mydb.cursor()
-my_cursor.execute(query)
-my_result = my_cursor.fetchall()
-#print(my_result[1][0])
+class DBAction:
+    @staticmethod
+    @allure.step("get all details From the db")
+    def get_details():
+        query = "SELECT value FROM Test_values"
+        my_cursor = base.mydb.cursor()
+        my_cursor.execute(query)
+        return my_cursor.fetchall()
+

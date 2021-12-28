@@ -2,38 +2,45 @@ import allure
 
 from extensions.ui_actions import WebUiAction
 from page_objects.appium.appium_page import appium_page
+from utilities import base
 
 
 class mobile_work_flow:
-    app_po = appium_page(driver)
-
+    @staticmethod
     @allure.step("loan calculator")
-    def loan_calc(self,la,ir,ly,lm,epm):
-        WebUiAction.click_on(self.app_po.loan_calc)
-        WebUiAction.send_keys(self.app_po.loan_amount, la)
-        WebUiAction.send_keys(self.app_po.interest_rate, ir)
-        WebUiAction.send_keys(self.app_po.loan_year, ly)
-        WebUiAction.send_keys(self.app_po.loan_month, lm)
-        WebUiAction.send_keys(self.app_po.extra_per_month, epm)
-        WebUiAction.click_on(self.app_po.calc)
+    def loan_calc(la,ir,ly,lm,epm):
+        WebUiAction.click_on(base.app_page.loan_calc)
+        WebUiAction.send_keys(base.app_page.loan_amount, la)
+        WebUiAction.send_keys(base.app_page.interest_rate, ir)
+        WebUiAction.send_keys(base.app_page.loan_year, ly)
+        WebUiAction.send_keys(base.app_page.loan_month, lm)
+        WebUiAction.send_keys(base.app_page.extra_per_month, epm)
+        WebUiAction.click_on(base.app_page.calc)
 
+    @staticmethod
+    @allure.step("loan calculator")
+    def monthly_payment():
+        return WebUiAction.get_text(base.app_page.monthly_payment)
 
+    @staticmethod
+    @allure.step("return text of total payment")
+    def total_payment():
+        return WebUiAction.get_text(base.app_page.total_payment)
 
-    def monthly_payment(self):
-        WebUiAction.get_text(self.monthly_payment)
+    @staticmethod
+    @allure.step("return text of total interest")
+    def total_interest():
+        return WebUiAction.get_text(base.app_page.total_interest)
 
-    def total_payment(self):
-        WebUiAction.get_text(self.total_payment)
+    @staticmethod
+    @allure.step("return text of annual payment")
+    def annual_payment():
+        return WebUiAction.get_text(base.app_page.annual_payment)
 
-
-    def total_interest(self):
-        WebUiAction.get_text(self.total_interest)
-
-    def annual_payment(self):
-        WebUiAction.get_text(self.annual_payment)
-
-    def interest_saving(self):
-        WebUiAction.get_text(self.interest_saving)
+    @staticmethod
+    @allure.step("return text of interest saving ")
+    def interest_saving():
+        return WebUiAction.get_text(base.app_page.interest_saving)
 
 
 

@@ -5,7 +5,7 @@ from page_objects.web.sign_up_page import SignUp
 
 
 class WebWorkFlow:
-    sign_up = SignUp(driver)##driver
+    sign_up = SignUp(driver)
 
     @allure.step("Sign up")
     def sign_up_user(self,first_name,last_name,user_name,password):
